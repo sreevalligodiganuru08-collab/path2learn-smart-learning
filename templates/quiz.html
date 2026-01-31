@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Quiz | Path2Learn</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+
+<div class="card" style="max-width:500px; margin:auto;">
+    <h2>📝 Quiz: {{ topic }}</h2>
+    <p>Select the correct answer for each question</p>
+
+    <form method="post" action="/submit-quiz">
+
+        {% for q in questions %}
+        <div class="quiz-question" style="text-align:left; margin-bottom:18px; padding:10px; border-bottom:1px solid #e2e8f0;">
+            <p><b>{{ loop.index }}. {{ q.question }}</b></p>
+
+            {% for key, opt in q.options.items() %}
+            <label style="display:block; margin:5px 0;">
+                <input type="radio" name="{{ q._id }}" value="{{ key }}" required>
+                {{ key }}. {{ opt }}
+            </label>
+            {% endfor %}
+        </div>
+        {% endfor %}
+
+        <input type="hidden" name="topic" value="{{ topic }}">
+
+        <button type="submit" class="primary-btn" style="width:100%; padding:12px; font-size:16px; margin-top:10px;">
+            ✅ Submit Quiz
+        </button>
+    </form>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,2 @@
+UNIT - III
+Representation of Knowledge: Knowledge representation issues, predicate logic, logic programming, semantic nets- frames and inheritance, constraint propagation, representing knowledge using rules, rules based deduction systems. Reasoning under uncertainty, review of probability, Baye's probabilistic interferences and dempstershafer theory.

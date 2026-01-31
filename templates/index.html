@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Path2Learn</title>
+  <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+
+  <header>
+    <h1>📘 Path2Learn</h1>
+    <p class="tagline">From Static Syllabus to Smart Learning</p>
+  </header>
+
+  <main>
+    <div class="card">
+
+      <h2>Upload Your Learning Materials</h2>
+
+      <div class="upload-section">
+        <label class="upload-box syllabus">
+          <input type="file" id="syllabusFile" hidden>
+          <span>📄 Upload Syllabus PDF</span>
+        </label>
+        <div id="syllabusPreview" class="preview"></div>
+      </div>
+
+      <div class="upload-section">
+        <label class="upload-box notes">
+          <input type="file" id="notesFile" hidden>
+          <span>📝 Upload Notes PDF</span>
+        </label>
+        <div id="notesPreview" class="preview"></div>
+      </div>
+
+      <button class="next-btn">🚀 Generate Smart Study Plan</button>
+
+    </div>
+  </main>
+
+  <footer>
+    <p>Built for Hackathon • Smart EdTech Solution</p>
+  </footer>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>

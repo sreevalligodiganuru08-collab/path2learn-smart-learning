@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Study Plan | Path2Learn</title>
+<link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+
+<header>
+    <h1>📘 Path2Learn</h1>
+    <p>{{ username }}, click a topic to take quiz 📚</p>
+</header>
+
+<div class="dashboard-container">
+
+    <div class="study-plan-card">
+        <h2>📝 Study Plan Topics</h2>
+
+        <!-- TOPIC BUTTONS -->
+        <div class="topics-container">
+            {% for topic in topics %}
+            <form method="get" action="/quiz">
+                <input type="hidden" name="topic" value="{{ topic }}">
+                <button type="submit" class="topic-box">
+                    {{ topic }} 📝
+                </button>
+            </form>
+            {% endfor %}
+        </div>
+
+        <div class="motivation" id="motivationMessage"></div>
+    </div>
+
+</div>
+
+<script>
+const motivation = document.getElementById("motivationMessage");
+const msgs = [
+    "🎯 Ready to test your knowledge?",
+    "🔥 Let’s begin the quiz!",
+    "💡 Learning becomes powerful with practice!",
+    "🚀 Go ahead, you’ve got this!"
+];
+
+document.querySelectorAll(".topic-box").forEach(btn => {
+    btn.addEventListener("mouseover", () => {
+        motivation.innerText = msgs[Math.floor(Math.random() * msgs.length)];
+    });
+});
+</script>
+
+</body>
+</html>

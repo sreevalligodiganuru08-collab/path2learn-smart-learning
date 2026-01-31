@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Login | Path2Learn</title>
+<link rel="stylesheet" href="/static/css/style.css">
+</head>
+
+<body>
+
+<header>
+    <h1>📘 Path2Learn</h1>
+    <p>From Static Syllabus to Smart Learning</p>
+</header>
+
+<div class="auth-container">
+    <div class="auth-card">
+        <h2>🔐 Login</h2>
+
+        <form method="post" action="/login">
+            <input type="text" name="username" placeholder="Username" required>
+
+            <input type="password" name="password" placeholder="Password" required>
+
+            <button type="submit" class="primary-btn">
+                Login 🚀
+            </button>
+        </form>
+
+        {% if message %}
+        <p class="auth-message">{{ message }}</p>
+        {% endif %}
+
+        <p style="margin-top:15px;font-size:0.85rem;">
+            New here? <a href="/signup">Create an account</a>
+        </p>
+    </div>
+</div>
+
+</body>
+</html>

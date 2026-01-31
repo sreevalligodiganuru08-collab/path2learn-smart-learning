@@ -1,0 +1,334 @@
+/* ================= GLOBAL ================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background: #f4f6fb;
+    color: #333;
+    min-height: 100vh;
+}
+
+/* ================= HEADER ================= */
+header {
+    background: #ffffff;
+    padding: 18px 30px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    text-align: center;
+}
+
+header h1 {
+    color: #6c63ff;
+    font-size: 1.8rem;
+}
+
+header p {
+    margin-top: 4px;
+    font-size: 0.95rem;
+    color: #555;
+}
+
+/* ================= AUTH (LOGIN / SIGNUP) ================= */
+.auth-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 60px;
+}
+
+.auth-card {
+    background: #ffffff;
+    width: 360px;
+    padding: 30px;
+    border-radius: 14px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+    text-align: center;
+}
+
+.auth-card h2 {
+    margin-bottom: 20px;
+    color: #6c63ff;
+}
+
+.auth-card input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+    outline: none;
+}
+
+.auth-card input:focus {
+    border-color: #6c63ff;
+}
+
+.auth-card button {
+    width: 100%;
+    padding: 12px;
+    border-radius: 12px;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: transform 0.2s ease;
+}
+
+.auth-card button:hover {
+    transform: scale(1.03);
+}
+
+.auth-message {
+    margin-top: 10px;
+    font-size: 0.85rem;
+}
+
+/* ================= DASHBOARD ================= */
+.dashboard-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+}
+
+.dashboard-card {
+    background: #ffffff;
+    padding: 30px;
+    width: 420px;
+    border-radius: 14px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+    text-align: center;
+}
+
+.dashboard-card h2 {
+    margin-bottom: 20px;
+    color: #6c63ff;
+}
+
+/* ================= UPLOAD SECTION ================= */
+.upload-group {
+    margin-bottom: 28px;
+}
+
+/* Upload Button */
+.upload-btn {
+    display: inline-block;
+    padding: 14px 26px;
+    border-radius: 12px;
+    background: #eef0ff;
+    color: #333;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.upload-btn:hover {
+    transform: scale(1.05);
+    background: #e3e6ff;
+}
+
+/* Selected file name */
+.file-name {
+    margin-top: 8px;
+    font-size: 0.85rem;
+    color: #555;
+}
+
+/* Preview Icon */
+.preview-icon {
+    display: inline-block;
+    margin-top: 6px;
+    text-decoration: none;
+    font-size: 1.1rem;
+    color: #6c63ff;
+}
+
+/* ================= MAIN ACTION BUTTON ================= */
+.primary-btn {
+    margin-top: 15px;
+    padding: 14px;
+    width: 100%;
+    font-size: 1.05rem;
+    border-radius: 12px;
+    border: none;
+    background: #6c63ff;
+    color: #ffffff;
+    cursor: pointer;
+    transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.primary-btn:hover {
+    transform: scale(1.03);
+    background: #5a54e6;
+}
+
+/* ================= STUDY PLAN ================= */
+.study-plan-card {
+    background: #ffffff;
+    padding: 25px;
+    border-radius: 14px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+    width: 80%;
+    margin: 30px auto;
+    text-align: center;
+}
+
+.study-plan-card h2 {
+    color: #6c63ff;
+    margin-bottom: 15px;
+}
+
+/* PDF Previews */
+.pdf-previews {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.preview-link {
+    text-decoration: none;
+    font-weight: bold;
+    color: #00bfa6;
+}
+
+.preview-link:hover {
+    text-decoration: underline;
+}
+
+/* Topics List */
+.topics-list {
+    list-style: none;
+    padding: 0;
+}
+
+.topics-list li {
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+    padding: 10px 14px;
+    border-radius: 10px;
+    background: #f0f4ff;
+    transition: background 0.3s ease;
+}
+
+.topics-list li:hover {
+    background: #e4e9ff;
+}
+
+.topics-list input[type="checkbox"] {
+    margin-right: 12px;
+    transform: scale(1.2);
+}
+
+.completed {
+    text-decoration: line-through;
+    color: #28a745;
+}
+
+/* Motivation Message */
+.motivation {
+    margin-top: 15px;
+    font-weight: bold;
+    color: #ff6b6b;
+    font-size: 1.05rem;
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 480px) {
+    .dashboard-card,
+    .auth-card {
+        width: 90%;
+    }
+
+    .study-plan-card {
+        width: 95%;
+    }
+}
+
+/* ===== Topics styling ===== */
+.topics-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    justify-content: center;
+    margin-top: 15px;
+}
+
+.topic-box {
+    background: #eef7ff;
+    padding: 12px 18px;
+    border-radius: 12px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: #333;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.08);
+    border: none;
+}
+
+.topic-box:hover {
+    background: #d0e4ff;
+    transform: translateY(-2px) scale(1.03);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+}
+
+
+/* ================= FACULTY DASHBOARD QUIZ FORM ================= */
+.card input[type="text"],
+.card select {
+    margin-bottom: 12px;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    width: 100%;
+}
+
+.card button {
+    padding: 12px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+    background: #6c63ff;
+    color: #fff;
+    transition: 0.3s ease;
+}
+
+.card button:hover {
+    background: #5a54e6;
+    transform: scale(1.03);
+}
+
+/* ================= QUIZ PAGE ================= */
+.quiz-question {
+    background: #f0f4ff;
+    padding: 12px;
+    border-radius: 10px;
+    margin-bottom: 12px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+
+.quiz-question input[type="radio"] {
+    margin-right: 8px;
+}
+
+/* ================= QUIZ RESULT PAGE ================= */
+.secondary-btn {
+    display: block;
+    padding: 12px;
+    background: #10b981;
+    color: #fff;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: 600;
+    margin-top: 12px;
+    text-align: center;
+    transition: 0.3s ease;
+}
+
+.secondary-btn:hover {
+    background: #059669;
+}

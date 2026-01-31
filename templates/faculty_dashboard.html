@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Faculty Dashboard | Path2Learn</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+
+<div class="card" style="max-width:450px; margin:auto;">
+    <h2>🧑‍🏫 Faculty Quiz Creator</h2>
+    <p>Create MCQ assessments for each topic</p>
+
+    <form method="post" action="/add-quiz">
+
+        <input type="text" name="topic" placeholder="Topic Name" required style="margin-bottom:10px;">
+
+        <input type="text" name="question" placeholder="Question" required style="margin-bottom:10px;">
+
+        <input type="text" name="option_a" placeholder="Option A" required style="margin-bottom:10px;">
+        <input type="text" name="option_b" placeholder="Option B" required style="margin-bottom:10px;">
+        <input type="text" name="option_c" placeholder="Option C" required style="margin-bottom:10px;">
+        <input type="text" name="option_d" placeholder="Option D" required style="margin-bottom:10px;">
+
+        <select name="correct_option" required style="margin-bottom:14px; padding:10px; border-radius:8px; width:100%;">
+            <option value="">Correct Answer</option>
+            <option value="A">Option A</option>
+            <option value="B">Option B</option>
+            <option value="C">Option C</option>
+            <option value="D">Option D</option>
+        </select>
+
+        <button type="submit" class="primary-btn" style="width:100%; padding:12px; font-size:16px; margin-top:10px;">
+            💾 Save Question
+        </button>
+    </form>
+</div>
+
+</body>
+</html>

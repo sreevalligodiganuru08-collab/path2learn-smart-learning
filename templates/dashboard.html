@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Dashboard | Path2Learn</title>
+<link rel="stylesheet" href="/static/css/style.css">
+</head>
+
+<body>
+
+<header>
+    <h1>📘 Path2Learn</h1>
+    <p>Welcome, <strong>{{ username }}</strong> 👋</p>
+
+    <!-- FACULTY PANEL BUTTON -->
+    <div style="margin-top:10px;">
+        <a href="/faculty" class="secondary-btn">🧑‍🏫 Faculty Panel</a>
+    </div>
+</header>
+
+<div class="dashboard-container">
+
+    <!-- UPLOAD CARD -->
+    <form action="/upload" method="post" enctype="multipart/form-data" class="dashboard-card">
+        <input type="hidden" name="username" value="{{ username }}">
+
+        <h2>📂 Upload Learning Material</h2>
+
+        <!-- SYLLABUS -->
+        <div class="upload-group">
+            <label class="upload-btn">
+                📘 Upload Syllabus
+                <input type="file" name="syllabus" hidden
+                       accept=".pdf,.jpg,.jpeg"
+                       onchange="showFileName(this,'syllabusName')">
+            </label>
+
+            <p id="syllabusName" class="file-name"></p>
+
+            {% if syllabus_file %}
+            <a href="/preview/{{ username }}/syllabus" target="_blank" class="preview-icon">
+                👁️ <small>Preview</small>
+            </a>
+            {% endif %}
+        </div>
+
+        <!-- NOTES -->
+        <div class="upload-group">
+            <label class="upload-btn">
+                📝 Upload Notes
+                <input type="file" name="notes" hidden
+                       accept=".pdf"
+                       onchange="showFileName(this,'notesName')">
+            </label>
+
+            <p id="notesName" class="file-name"></p>
+
+            {% if notes_file %}
+            <a href="/preview/{{ username }}/notes" target="_blank" class="preview-icon">
+                👁️ <small>Preview</small>
+            </a>
+            {% endif %}
+        </div>
+
+        <!-- SUBMIT -->
+        <button type="submit" class="primary-btn">
+            🚀 Generate Study Plan
+        </button>
+    </form>
+</div>
+
+<script>
+function showFileName(input, targetId){
+    if(input.files.length > 0){
+        document.getElementById(targetId).innerText =
+        "Selected: " + input.files[0].name;
+    }
+}
+</script>
+
+</body>
+</html>

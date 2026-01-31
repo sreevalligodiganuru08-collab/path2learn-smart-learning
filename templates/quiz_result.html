@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Quiz Result | Path2Learn</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+
+<div class="card" style="max-width:400px; margin:auto;">
+    <h2>📊 Quiz Result</h2>
+
+    <p>Your Score: <b>{{ score }} / {{ total }}</b></p>
+
+    {% if score/total >= 0.7 %}
+        <p style="color:#16a34a; font-weight:bold;">🎉 Excellent! You can move to the next topic.</p>
+    {% else %}
+        <p style="color:#dc2626; font-weight:bold;">⚠ You should revise this topic and try again.</p>
+    {% endif %}
+
+    <a href="/dashboard" class="secondary-btn" style="width:100%; display:block; margin-top:12px; text-align:center;">⬅ Back to Dashboard</a>
+</div>
+
+</body>
+</html>
