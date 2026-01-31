@@ -1,23 +1,25 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Faculty Login</title>
+    <title>Faculty Login | Path2Learn</title>
     <link rel="stylesheet" href="/static/css/style.css">
 </head>
 <body>
 
-<div class="card">
-    <h2>🧑‍🏫 Faculty Login</h2>
+<div class="faculty-page-wrapper">
+    <div class="card faculty-card">
+        <h2>👩‍🏫 Faculty Login</h2>
 
-    {% if error %}
-    <div class="error">{{ error }}</div>
-    {% endif %}
+        <form method="post" action="/faculty-login">
+            <input type="text" name="faculty_id" placeholder="Faculty Username" required>
+            <input type="password" name="pin" placeholder="Password" required>
+            <button class="primary-btn" type="submit">Login</button>
+        </form>
 
-    <form method="post" action="/faculty-login">
-        <input type="text" name="username" placeholder="Faculty Username" required>
-        <input type="password" name="pin" placeholder="PIN" required>
-        <button type="submit">Login</button>
-    </form>
+        {% if error %}
+        <p class="error-text">{{ error }}</p>
+        {% endif %}
+    </div>
 </div>
 
 </body>

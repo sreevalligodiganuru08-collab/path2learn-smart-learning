@@ -2,35 +2,38 @@
 <html>
 <head>
     <title>Quiz | Path2Learn</title>
-    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="/static/css/style.css?v=2">
+
 </head>
 <body>
 
-<div class="card" style="max-width:500px; margin:auto;">
-    <h2>📝 Quiz: {{ topic }}</h2>
-    <p>Select the correct answer for each question</p>
+<div class="quiz-page-wrapper">
+    <div class="card quiz-card">
+        <h2>📝 Quiz: {{ topic }}</h2>
+        <p>Select the correct answer for each question</p>
 
-    <form method="post" action="/submit-quiz">
+        <form action="/submit-quiz" method="post">
+            <input type="hidden" name="topic" value="{{ topic }}">
 
-        {% for q in questions %}
-        <div class="quiz-question" style="text-align:left; margin-bottom:18px; padding:10px; border-bottom:1px solid #e2e8f0;">
-            <p><b>{{ loop.index }}. {{ q.question }}</b></p>
+            {% for q in questions %}
+            <div class="quiz-question">
+    <p><strong>{{ loop.index }}. {{ q.question }}</strong></p>
 
-            {% for key, opt in q.options.items() %}
-            <label style="display:block; margin:5px 0;">
-                <input type="radio" name="{{ q._id }}" value="{{ key }}" required>
-                {{ key }}. {{ opt }}
-            </label>
-            {% endfor %}
-        </div>
+    <div class="quiz-options">
+        {% for key, opt in q.options.items() %}
+        <label class="quiz-option">
+            <input type="radio" name="{{ q.id }}" value="{{ key }}" required>
+            <span>{{ key }}. {{ opt }}</span>
+        </label>
         {% endfor %}
+    </div>
+</div>
 
-        <input type="hidden" name="topic" value="{{ topic }}">
+            {% endfor %}
 
-        <button type="submit" class="primary-btn" style="width:100%; padding:12px; font-size:16px; margin-top:10px;">
-            ✅ Submit Quiz
-        </button>
-    </form>
+            <button class="primary-btn" type="submit">Submit Quiz</button>
+        </form>
+    </div>
 </div>
 
 </body>

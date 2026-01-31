@@ -36,7 +36,6 @@ def extract_topics_from_syllabus(file_path):
         else:
             return [], "unsupported"
 
-        text = re.sub(r"\s+", " ", text)
         raw_parts = text.split(",")
 
         for part in raw_parts:
@@ -50,7 +49,7 @@ def extract_topics_from_syllabus(file_path):
         print("Extraction failed:", e)
         return [], "error"
 
-    if len(topics) == 0:
+    if not topics:
         return [], "empty"
 
     return list(dict.fromkeys(topics))[:25], "ok"
@@ -86,8 +85,8 @@ def login_get(request: Request):
 
 @app.post("/login", response_class=HTMLResponse)
 def login_post(request: Request, username: str = Form(...), password: str = Form(...)):
-    if username in users_db and users_db[username] == password:
-        return RedirectResponse(f"/dashboard?username={username}", status_code=303)
+    if users_db.get(username) == password:
+        return RedirectResponse(url=f"/dashboard?username={username}", status_code=303)
 
     return templates.TemplateResponse("login.html", {
         "request": request,
@@ -103,9 +102,9 @@ def faculty_login(request: Request):
     })
 
 @app.post("/faculty-login", response_class=HTMLResponse)
-def faculty_login_post(request: Request, username: str = Form(...), pin: str = Form(...)):
-    if username == "faculty" and pin == "1234":
-        return RedirectResponse("/faculty-dashboard", status_code=303)
+def faculty_login_post(request: Request, faculty_id: str = Form(...), pin: str = Form(...)):
+    if faculty_id == "faculty" and pin == "1234":
+        return RedirectResponse(url="/faculty-dashboard", status_code=303)
 
     return templates.TemplateResponse("faculty_login.html", {
         "request": request,
@@ -142,7 +141,7 @@ def add_quiz(
     }
 
     quiz_db.setdefault(topic.lower().strip(), []).append(quiz)
-    return RedirectResponse("/faculty-dashboard", status_code=303)
+    return RedirectResponse(url="/faculty-dashboard", status_code=303)
 
 # ---------- DASHBOARD ----------
 @app.get("/dashboard", response_class=HTMLResponse)
@@ -163,8 +162,8 @@ async def upload(
     syllabus: UploadFile = File(...),
     notes: UploadFile = File(...)
 ):
-    syllabus_ext = syllabus.filename.split(".")[-1].lower()
-    notes_ext = notes.filename.split(".")[-1].lower()
+    syllabus_ext = syllabus.filename.split('.')[-1]
+    notes_ext = notes.filename.split('.')[-1]
 
     syllabus_path = f"{UPLOAD_FOLDER}/{username}_syllabus.{syllabus_ext}"
     notes_path = f"{UPLOAD_FOLDER}/{username}_notes.{notes_ext}"
@@ -204,21 +203,25 @@ def quiz(request: Request, topic: str):
     })
 
 @app.post("/submit-quiz", response_class=HTMLResponse)
-def submit_quiz(request: Request, topic: str = Form(...), **answers):
+async def submit_quiz(request: Request):
+    form = await request.form()
+    topic = form.get("topic")
+
     questions = quiz_db.get(topic.lower().strip(), [])
     score = 0
 
     for q in questions:
-        user_ans = answers.get(q["id"])
+        user_ans = form.get(q["id"])
         if user_ans == q["correct"]:
             score += 1
 
     return templates.TemplateResponse("quiz_result.html", {
-        "request": request,
-        "topic": topic,
-        "score": score,
-        "total": len(questions)
-    })
+    "request": request,
+    "topic": topic,
+    "score": score,
+    "total": len(questions),
+    "username": form.get("username")  # pass username
+})
 
 # ---------- PREVIEW ----------
 @app.get("/preview/{username}/{filetype}")
@@ -234,7 +237,7 @@ def preview(username: str, filetype: str):
     ext = path.split('.')[-1].lower()
 
     if ext in ["jpg", "jpeg", "png"]:
-        return FileResponse(path, media_type="image/jpeg")
+        return FileResponse(path)
     elif ext == "pdf":
         return FileResponse(path, media_type="application/pdf")
     elif ext == "txt":
