@@ -32,7 +32,7 @@ header p {
     color: #555;
 }
 
-/* ================= AUTH (LOGIN / SIGNUP) ================= */
+/* ================= AUTH ================= */
 .auth-container {
     display: flex;
     justify-content: center;
@@ -62,17 +62,6 @@ header p {
     margin-bottom: 15px;
     border-radius: 10px;
     border: 1px solid #ddd;
-    outline: none;
-    transition: 0.3s ease;
-}
-
-.auth-card input:hover {
-    border-color: #b8b4ff;
-}
-
-.auth-card input:focus {
-    border-color: #6c63ff;
-    box-shadow: 0 0 8px rgba(108,99,255,0.45);
 }
 
 .auth-card button {
@@ -81,23 +70,8 @@ header p {
     border-radius: 12px;
     border: none;
     cursor: pointer;
-    font-size: 1rem;
-    font-weight: 600;
     background: linear-gradient(135deg, #6c63ff, #7f7cff);
     color: white;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.auth-card button:hover {
-    transform: translateY(-2px) scale(1.03);
-    box-shadow: 0 8px 20px rgba(108,99,255,0.4);
-}
-
-.auth-message {
-    margin-top: 12px;
-    font-size: 0.9rem;
-    font-weight: 600;
-    color: #ef4444;
 }
 
 /* ================= DASHBOARD ================= */
@@ -109,183 +83,25 @@ header p {
 
 .dashboard-card {
     background: rgba(255,255,255,0.95);
-    backdrop-filter: blur(8px);
     padding: 34px;
     width: 500px;
     border-radius: 18px;
     box-shadow: 0 12px 30px rgba(0,0,0,0.15);
     text-align: center;
-    animation: fadeIn 0.6s ease;
-}
-
-.dashboard-card h2 {
-    margin-bottom: 20px;
-    color: #6c63ff;
-}
-
-.dashboard-card input,
-.dashboard-card select {
-    width: 100%;
-    padding: 12px;
-    margin-bottom: 12px;
-    border-radius: 10px;
-    border: 1px solid #ddd;
-    outline: none;
-    transition: 0.3s ease;
-}
-
-.dashboard-card input:focus,
-.dashboard-card select:focus {
-    border-color: #6c63ff;
-    box-shadow: 0 0 8px rgba(108,99,255,0.35);
-}
-
-.dashboard-card .grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 10px;
-}
-
-/* ================= UPLOAD SECTION ================= */
-.upload-group {
-    margin-bottom: 28px;
-}
-
-.upload-btn {
-    display: inline-block;
-    padding: 14px 26px;
-    border-radius: 14px;
-    background: #eef0ff;
-    color: #333;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
-}
-
-.upload-btn:hover {
-    transform: translateY(-2px) scale(1.05);
-    background: #e3e6ff;
-    box-shadow: 0 6px 16px rgba(108,99,255,0.3);
-}
-
-.file-name {
-    margin-top: 8px;
-    font-size: 0.85rem;
-    color: #555;
-}
-
-.preview-icon {
-    display: inline-block;
-    margin-top: 6px;
-    text-decoration: none;
-    font-size: 1.1rem;
-    color: #6c63ff;
-}
-
-/* ================= MAIN ACTION BUTTON ================= */
-.primary-btn {
-    margin-top: 15px;
-    padding: 14px;
-    width: 100%;
-    font-size: 1.05rem;
-    border-radius: 14px;
-    border: none;
-    background: linear-gradient(135deg, #6c63ff, #7f7cff);
-    color: #ffffff;
-    cursor: pointer;
-    font-weight: 600;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.primary-btn:hover {
-    transform: translateY(-2px) scale(1.04);
-    box-shadow: 0 10px 25px rgba(108,99,255,0.45);
 }
 
 /* ================= STUDY PLAN ================= */
 .study-plan-card {
     background: rgba(255,255,255,0.95);
-    backdrop-filter: blur(8px);
     padding: 30px;
     border-radius: 18px;
     box-shadow: 0 12px 30px rgba(0,0,0,0.15);
     width: 80%;
     margin: 30px auto;
     text-align: center;
-    animation: fadeIn 0.6s ease;
 }
 
-.study-plan-card h2 {
-    color: #6c63ff;
-    margin-bottom: 15px;
-}
-
-/* ================= TOPICS ================= */
-.topics-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 12px;
-    justify-content: center;
-    margin-top: 15px;
-}
-
-.topic-box {
-    background: linear-gradient(135deg, #eef7ff, #ffffff);
-    padding: 12px 20px;
-    border-radius: 25px;
-    font-size: 0.95rem;
-    font-weight: 600;
-    color: #333;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-}
-
-.topic-box:hover {
-    background: linear-gradient(135deg, #6c63ff, #7f7cff);
-    color: #fff;
-    transform: translateY(-3px) scale(1.06);
-    box-shadow: 0 10px 25px rgba(108,99,255,0.45);
-}
-
-
-/* ================= QUIZ RESULT ================= */
-.secondary-btn {
-    display: block;
-    padding: 14px;
-    background: linear-gradient(135deg, #10b981, #34d399);
-    color: #fff;
-    border-radius: 14px;
-    text-decoration: none;
-    font-weight: 600;
-    margin-top: 14px;
-    text-align: center;
-    transition: 0.3s ease;
-}
-
-.secondary-btn:hover {
-    transform: translateY(-2px) scale(1.05);
-    box-shadow: 0 10px 25px rgba(16,185,129,0.5);
-}
-
-/* ================= ANIMATIONS ================= */
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(15px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-/* ================= RESPONSIVE ================= */
-@media (max-width: 480px) {
-    .dashboard-card,
-    .auth-card {
-        width: 92%;
-    }
-
-    .study-plan-card {
-        width: 95%;
-    }
-}
-/* ================= GENERIC CARD ================= */
+/* ================= CARD ================= */
 .card {
     background: #ffffff;
     padding: 35px 40px;
@@ -293,28 +109,6 @@ header p {
     box-shadow: 0 12px 30px rgba(0,0,0,0.12);
     width: 100%;
     max-width: 420px;
-    animation: fadeIn 0.6s ease;
-}
-
-/* ================= CENTER CARD LAYOUT ================= */
-.center-card {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-
-/* ================= FACULTY LOGIN FORM ================= */
-.card h2 {
-    text-align: center;
-    margin-bottom: 10px;
-    color: #6c63ff;
-}
-
-.card p {
-    text-align: center;
-    color: #555;
-    margin-bottom: 18px;
 }
 
 .card form {
@@ -323,85 +117,7 @@ header p {
     gap: 14px;
 }
 
-.card input {
-    width: 100%;
-    padding: 12px 14px;
-    border-radius: 10px;
-    border: 1px solid #ddd;
-    font-size: 0.95rem;
-    outline: none;
-    transition: 0.3s ease;
-}
-
-.card input:focus {
-    border-color: #6c63ff;
-    box-shadow: 0 0 6px rgba(108,99,255,0.4);
-}
-
-
-/* ================= ERROR TEXT ================= */
-.error-text {
-    margin-top: 12px;
-    color: #ff4d4d;
-    text-align: center;
-    font-weight: 600;
-}
-/* ================= FACULTY DASHBOARD LAYOUT ================= */
-.faculty-page-wrapper {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 40px;
-}
-
-/* Make faculty card slightly wider */
-.faculty-card {
-    max-width: 480px;
-    width: 100%;
-}
-.page-center {
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.faculty-card {
-    width: 420px;
-    max-width: 95%;
-}
-/* Center any page content */
-.page-center {
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-/* Faculty card sizing */
-.faculty-card {
-    width: 420px;
-    max-width: 95%;
-}
-
-/* Optional: nice grid for options */
-.grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 12px;
-}
-
-/* Tip text style */
-.tip-text {
-    margin-top: 10px;
-    font-size: 13px;
-    color: #666;
-    text-align: center;
-}
-/* ================= QUIZ FINAL ALIGNMENT FIX ================= */
-
-/* ================= QUIZ FINAL ALIGNMENT FIX ================= */
+/* ================= QUIZ (FINAL CLEAN VERSION) ================= */
 
 .quiz-page-wrapper {
     min-height: 100vh;
@@ -411,15 +127,14 @@ header p {
     padding: 20px;
 }
 
-/* prevent form flex from breaking quiz layout */
-.quiz-card form {
-    display: block;
-}
-
 .quiz-card {
     width: 600px;
     max-width: 95%;
     padding: 30px;
+}
+
+.quiz-card form {
+    display: block !important;   /* override card flex */
 }
 
 .quiz-question {
@@ -439,9 +154,7 @@ header p {
 
 .quiz-option {
     display: flex;
-    align-items: center;
-    justify-content: flex-start;   /* force left */
-    text-align: left;
+    align-items: flex-start;
     gap: 10px;
     padding: 12px 14px;
     border-radius: 10px;
@@ -455,12 +168,17 @@ header p {
 }
 
 .quiz-option input[type="radio"] {
-    margin: 0;
-    align-self: flex-start;   /* radio always on left */
+    margin-top: 3px;
+    flex-shrink: 0;
 }
 
 .quiz-option span {
-    display: inline-block;
-    text-align: left;
     line-height: 1.4;
+    text-align: left;
+}
+
+/* ================= ANIMATIONS ================= */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(15px); }
+    to { opacity: 1; transform: translateY(0); }
 }

@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
     <title>Quiz | Path2Learn</title>
-    <link rel="stylesheet" href="/static/css/style.css?v=2">
-
+    <link rel="stylesheet" href="/static/css/style.css?v=5">
 </head>
 <body>
 
@@ -17,18 +17,17 @@
 
             {% for q in questions %}
             <div class="quiz-question">
-    <p><strong>{{ loop.index }}. {{ q.question }}</strong></p>
+                <p><strong>{{ loop.index }}. {{ q.question }}</strong></p>
 
-    <div class="quiz-options">
-        {% for key, opt in q.options.items() %}
-        <label class="quiz-option">
-            <input type="radio" name="{{ q.id }}" value="{{ key }}" required>
-            <span>{{ key }}. {{ opt }}</span>
-        </label>
-        {% endfor %}
-    </div>
-</div>
-
+                <div class="quiz-options">
+                    {% for key, opt in q.options.items() %}
+                    <label class="quiz-option">
+                        <input type="radio" name="{{ q.id }}" value="{{ key }}" required>
+                        <span>{{ key }}. {{ opt }}</span>
+                    </label>
+                    {% endfor %}
+                </div>
+            </div>
             {% endfor %}
 
             <button class="primary-btn" type="submit">Submit Quiz</button>
